@@ -1,0 +1,448 @@
+/* ==========================================================================
+   QNova Design System & Variables
+   Modern Quantum Cyberpunk + Clean Laboratory Aesthetic
+   ========================================================================== */
+
+:root {
+  /* Dark Theme (Deep Cosmic Violet) */
+  --bg-primary: #090414;
+  --bg-secondary: rgba(22, 12, 44, 0.8);
+  --bg-tertiary: rgba(38, 20, 72, 0.65);
+  --bg-card: rgba(24, 13, 48, 0.72);
+  --bg-glass: rgba(20, 10, 42, 0.62);
+  --bg-glass-hover: rgba(40, 20, 80, 0.8);
+
+  --text-primary: #f5f3ff;
+  --text-secondary: #c4b5fd;
+  --text-muted: #8b5cf6;
+  --text-bright: #ffffff;
+
+  --accent-cyan: #c084fc; /* Neon violet accent */
+  --accent-cyan-glow: rgba(192, 132, 252, 0.4);
+  --accent-blue: #818cf8;
+  --accent-purple: #a855f7;
+  --accent-purple-glow: rgba(168, 85, 247, 0.45);
+  --accent-violet: #8b5cf6;
+  --accent-gold: #f59e0b;
+  --accent-gold-glow: rgba(245, 158, 11, 0.4);
+  --accent-emerald: #10b981;
+
+  --border-subtle: rgba(192, 132, 252, 0.12);
+  --border-glass: rgba(168, 85, 247, 0.28);
+  --border-glass-strong: rgba(192, 132, 252, 0.55);
+
+  --shadow-quantum: 0 10px 30px -10px rgba(168, 85, 247, 0.35);
+  --shadow-glow: 0 0 25px rgba(168, 85, 247, 0.4);
+  --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.3);
+
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-tech: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  /* Light Theme (Crisp Violet Lab) */
+  --bg-primary: #fbf7ff;
+  --bg-secondary: rgba(255, 255, 255, 0.9);
+  --bg-tertiary: rgba(245, 238, 255, 0.85);
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-glass: rgba(255, 255, 255, 0.8);
+  --bg-glass-hover: rgba(250, 245, 255, 0.95);
+
+  --text-primary: #2e1065;
+  --text-secondary: #581c87;
+  --text-muted: #7e22ce;
+  --text-bright: #1e0a45;
+
+  --accent-cyan: #7c3aed;
+  --accent-cyan-glow: rgba(124, 58, 237, 0.25);
+  --accent-blue: #6366f1;
+  --accent-purple: #9333ea;
+  --accent-purple-glow: rgba(147, 51, 234, 0.25);
+  --accent-violet: #6d28d9;
+  --accent-gold: #d97706;
+  --accent-gold-glow: rgba(217, 119, 6, 0.25);
+  --accent-emerald: #059669;
+
+  --border-subtle: rgba(124, 58, 237, 0.12);
+  --border-glass: rgba(124, 58, 237, 0.25);
+  --border-glass-strong: rgba(124, 58, 237, 0.5);
+
+  --shadow-quantum: 0 10px 30px -10px rgba(124, 58, 237, 0.25);
+  --shadow-glow: 0 8px 25px rgba(124, 58, 237, 0.2);
+  --shadow-gold: 0 8px 25px rgba(217, 119, 6, 0.15);
+}
+
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition-smooth);
+}
+
+input, textarea, select {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.35);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(192, 132, 252, 0.65);
+}
+
+/* Typography Helpers */
+.font-tech {
+  font-family: var(--font-tech);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f5f3ff 0%, #d8b4fe 30%, #c084fc 65%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, #4c1d95 0%, #6b21a8 45%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-gold-text {
+  background: linear-gradient(135deg, #fbbf24 0%, var(--accent-gold) 60%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Glassmorphism & Cards */
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  transition: var(--transition-smooth);
+}
+
+.glass-panel-glow {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  box-shadow: 0 8px 32px 0 rgba(9, 4, 20, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: var(--transition-smooth);
+}
+
+.glass-panel-glow:hover {
+  border-color: var(--border-glass-strong);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Quantum Badges & Pills */
+.quantum-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid var(--border-glass);
+  color: var(--accent-cyan);
+  backdrop-filter: blur(8px);
+}
+
+.quantum-pill-gold {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: var(--accent-gold);
+}
+
+/* Interactive Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed 0%, #9333ea 50%, #c084fc 100%);
+  box-shadow: 0 0 20px var(--accent-purple-glow);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+[data-theme="light"] .btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+  box-shadow: 0 4px 16px rgba(109, 40, 217, 0.35);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s ease;
+  z-index: -1;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.65);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(12px);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+}
+
+.btn-icon:hover {
+  border-color: var(--border-glass);
+  color: var(--accent-cyan);
+  background: var(--bg-glass-hover);
+  transform: scale(1.05);
+}
+
+/* QNova Logo Styling */
+.qnova-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 16px rgba(168, 85, 247, 0.45);
+  border: 2px solid rgba(168, 85, 247, 0.5);
+  padding: 4px;
+  transition: var(--transition-smooth);
+}
+
+.qnova-logo-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 0 22px rgba(192, 132, 252, 0.7);
+  border-color: var(--accent-cyan);
+}
+
+.qnova-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  mix-blend-mode: normal;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.qnova-logo-container:hover .qnova-logo-img {
+  transform: rotate(180deg) scale(1.05);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 7, 18, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Professional Page Entrance & Hero Readability Enhancements */
+@keyframes navDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroPillReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.anim-nav-entrance {
+  animation: navDropIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-pill-entrance {
+  animation: heroPillReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.anim-hero-shield {
+  animation: heroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.anim-hero-buttons {
+  animation: heroFadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+.anim-bg-elements {
+  animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+/* Hero Center Readability Shield */
+.hero-center-shield {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 32px 28px;
+  border-radius: 28px;
+  background: radial-gradient(ellipse 92% 80% at 50% 50%, rgba(9, 4, 20, 0.82) 0%, rgba(9, 4, 20, 0.55) 60%, transparent 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(168, 85, 247, 0.16);
+  box-shadow: 0 10px 50px rgba(9, 4, 20, 0.6), inset 0 0 40px rgba(168, 85, 247, 0.05);
+  z-index: 2;
+  transition: var(--transition-smooth);
+}
+
+[data-theme="light"] .hero-center-shield {
+  background: radial-gradient(ellipse 92% 80% at 50% 50%, rgba(251, 247, 255, 0.92) 0%, rgba(251, 247, 255, 0.65) 65%, transparent 100%);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  box-shadow: 0 10px 50px rgba(124, 58, 237, 0.12), inset 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.hero-title-text {
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 0 40px rgba(168, 85, 247, 0.35);
+}
+
+[data-theme="light"] .hero-title-text {
+  text-shadow: 0 2px 16px rgba(46, 16, 101, 0.15);
+}

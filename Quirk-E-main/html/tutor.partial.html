@@ -1,0 +1,86 @@
+<div id="qlp-tutor-panel" class="qlp-tutor-drawer" style="display: none;">
+    <!-- Tutor Header -->
+    <div class="qlp-tutor-header">
+        <div class="qlp-tutor-brand">
+            <div class="qlp-tutor-avatar">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="qlp-tutor-pulse"></span>
+            </div>
+            <div class="qlp-tutor-titles">
+                <span class="qlp-tutor-name">Quantum AI Tutor</span>
+                <span class="qlp-tutor-status" id="qlp-tutor-circuit-badge">
+                    <i class="fa-solid fa-circle-dot"></i> <span id="qlp-tutor-circuit-text">Reading circuit...</span>
+                </span>
+            </div>
+        </div>
+        <div class="qlp-tutor-header-actions">
+            <select id="qlp-tutor-difficulty" class="qlp-select-sm" title="Explanation Level">
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+            <button id="qlp-tutor-close" class="qlp-btn-close-sm" title="Close Tutor">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Quick Action Chips -->
+    <div class="qlp-tutor-chips-bar">
+        <button class="qlp-tutor-chip" data-prompt="Explain what my current circuit does step-by-step.">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Explain Circuit
+        </button>
+        <button class="qlp-tutor-chip" data-prompt="Explain the currently selected gate and its effect on state.">
+            <i class="fa-solid fa-magnifying-glass"></i> Selected Gate
+        </button>
+        <button class="qlp-tutor-chip" data-prompt="Why am I getting this measurement distribution and statevector result?">
+            <i class="fa-solid fa-circle-question"></i> Why This Result?
+        </button>
+        <button class="qlp-tutor-chip" data-prompt="Give me a conceptual hint on how to progress or optimize this circuit.">
+            <i class="fa-solid fa-lightbulb"></i> Give Me a Hint
+        </button>
+        <button class="qlp-tutor-chip" data-prompt="Teach me how to create and verify a maximally entangled Bell state.">
+            <i class="fa-solid fa-atom"></i> Teach Bell State
+        </button>
+    </div>
+
+    <!-- Conversation Messages Container -->
+    <div id="qlp-tutor-messages" class="qlp-tutor-messages">
+        <!-- Initial greeting message -->
+        <div class="qlp-msg qlp-msg-tutor">
+            <div class="qlp-msg-bubble">
+                <p>Hello! I am your <strong>Circuit-Aware Quantum Tutor</strong>.</p>
+                <p>I observe your workspace in real time. Whenever you place gates or view simulations, you can ask me:</p>
+                <ul>
+                    <li>What your circuit is doing at each step</li>
+                    <li>How specific gates like <strong>H</strong>, <strong>CNOT</strong>, or <strong>Phase gates</strong> transform states</li>
+                    <li>Why you get particular measurement probabilities and phase angles</li>
+                    <li>How to build algorithms like <strong>Bell States</strong>, <strong>Teleportation</strong>, or <strong>Grover Search</strong></li>
+                </ul>
+                <p>Try placing gates on the canvas and clicking <em>"Explain Circuit"</em> above, or ask any question!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tutor Input Footer -->
+    <div class="qlp-tutor-footer">
+        <div class="qlp-tutor-input-options">
+            <label class="qlp-checkbox-label">
+                <input type="checkbox" id="qlp-tutor-send-circuit" checked class="qlp-checkbox">
+                <span>Include live circuit & simulation context</span>
+            </label>
+            <button id="qlp-tutor-clear" class="qlp-tutor-clear-btn" title="Clear Conversation">
+                <i class="fa-solid fa-trash-can"></i> Clear
+            </button>
+        </div>
+        <div class="qlp-tutor-input-row">
+            <textarea id="qlp-tutor-input" class="qlp-tutor-textarea" placeholder="Ask about your circuit or quantum concepts..." rows="1"></textarea>
+            <button id="qlp-tutor-send" class="qlp-btn qlp-btn-accent qlp-btn-icon" title="Send message (Enter)">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="qlp-tutor-subhint">
+            <span>Powered by Gemini & RAG Quantum Knowledge Base • Shift+Enter for newline</span>
+        </div>
+    </div>
+</div>

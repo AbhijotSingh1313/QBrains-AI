@@ -1,0 +1,116 @@
+<div id="gate-forge-div" class="qlp-modal-container" style="display:none;">
+    <div id="gate-forge-overlay" class="qlp-modal-backdrop"></div>
+    <div class="qlp-modal-dialog qlp-forge-dialog">
+        <div class="qlp-modal-header">
+            <div class="qlp-modal-title-wrap">
+                <div class="qlp-modal-icon">
+                    <i class="fa-solid fa-shapes"></i>
+                </div>
+                <div>
+                    <h2 class="qlp-modal-title">Custom Gate Builder</h2>
+                    <p class="qlp-modal-subtitle">Define custom single or multi-qubit gates from rotation axes, numerical unitary matrices, or circuit sub-blocks.</p>
+                </div>
+            </div>
+            <button class="qlp-btn-close" onclick="document.getElementById('gate-forge-overlay').click();" title="Close (Esc)">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="qlp-modal-body">
+            <div class="qlp-forge-grid">
+                <!-- Column 1: From Rotation -->
+                <div class="qlp-forge-card">
+                    <div class="qlp-forge-card-title">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>From Rotation</span>
+                    </div>
+                    <div class="qlp-forge-inputs">
+                        <div class="qlp-input-row">
+                            <label for="gate-forge-rotation-axis" class="qlp-label-sm">Rotation Axis:</label>
+                            <input tabindex="100" id="gate-forge-rotation-axis" type="text" class="qlp-input" placeholder="X+Z">
+                        </div>
+                        <div class="qlp-input-row">
+                            <label for="gate-forge-rotation-angle" class="qlp-label-sm">Angle (deg):</label>
+                            <input tabindex="101" id="gate-forge-rotation-angle" type="text" class="qlp-input" placeholder="45">
+                        </div>
+                        <div class="qlp-input-row">
+                            <label for="gate-forge-rotation-phase" class="qlp-label-sm">Global Phase (deg):</label>
+                            <input tabindex="102" id="gate-forge-rotation-phase" type="text" class="qlp-input" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="qlp-forge-canvas-wrap">
+                        <canvas id="gate-forge-rotation-canvas" width="195" height="100" class="qlp-preview-canvas"></canvas>
+                    </div>
+                    <div class="qlp-input-row qlp-mt-sm">
+                        <label for="gate-forge-rotation-name" class="qlp-label-sm">Gate Label:</label>
+                        <input tabindex="110" id="gate-forge-rotation-name" type="text" class="qlp-input" placeholder="[symbol]">
+                    </div>
+                    <button tabindex="120" id="gate-forge-rotation-button" class="qlp-btn qlp-btn-primary qlp-btn-wide qlp-mt-sm">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Create Rotation Gate</span>
+                    </button>
+                </div>
+
+                <!-- Column 2: From Matrix -->
+                <div class="qlp-forge-card">
+                    <div class="qlp-forge-card-title">
+                        <i class="fa-solid fa-table-cells"></i>
+                        <span>From Matrix</span>
+                    </div>
+                    <div class="qlp-forge-inputs">
+                        <label for="gate-forge-matrix" class="qlp-label-sm">Matrix Elements (rows comma separated):</label>
+                        <textarea tabindex="200" id="gate-forge-matrix" class="qlp-textarea qlp-matrix-textarea" placeholder="1, 0, 0, 1"></textarea>
+                        <label class="qlp-checkbox-label qlp-mt-xs">
+                            <input tabindex="201" id="gate-forge-matrix-fix" type="checkbox" checked class="qlp-checkbox">
+                            <span>Ensure Unitary (SVD project)</span>
+                        </label>
+                    </div>
+                    <div class="qlp-forge-canvas-wrap">
+                        <canvas id="gate-forge-matrix-canvas" width="195" height="100" class="qlp-preview-canvas"></canvas>
+                    </div>
+                    <div class="qlp-input-row qlp-mt-sm">
+                        <label for="gate-forge-matrix-name" class="qlp-label-sm">Gate Label:</label>
+                        <input tabindex="210" id="gate-forge-matrix-name" type="text" class="qlp-input" placeholder="[symbol]">
+                    </div>
+                    <button tabindex="220" id="gate-forge-matrix-button" class="qlp-btn qlp-btn-primary qlp-btn-wide qlp-mt-sm">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Create Matrix Gate</span>
+                    </button>
+                </div>
+
+                <!-- Column 3: From Circuit -->
+                <div class="qlp-forge-card">
+                    <div class="qlp-forge-card-title">
+                        <i class="fa-solid fa-microchip"></i>
+                        <span>From Circuit</span>
+                    </div>
+                    <div class="qlp-forge-inputs">
+                        <div class="qlp-input-row">
+                            <label for="gate-forge-circuit-cols" class="qlp-label-sm">Columns (e.g. 1:4):</label>
+                            <input tabindex="300" id="gate-forge-circuit-cols" type="text" class="qlp-input" placeholder="1:∞">
+                        </div>
+                        <div class="qlp-input-row">
+                            <label for="gate-forge-circuit-rows" class="qlp-label-sm">Wires (e.g. 0:2):</label>
+                            <input tabindex="301" id="gate-forge-circuit-rows" type="text" class="qlp-input" placeholder="1:∞">
+                        </div>
+                        <div class="qlp-forge-stats">
+                            <span>Inputs: <strong id="gate-forge-circuit-inputs">(none)</strong></span>
+                            <span>Weight: <strong id="gate-forge-circuit-weight">0</strong></span>
+                        </div>
+                    </div>
+                    <div class="qlp-forge-canvas-wrap">
+                        <canvas id="gate-forge-circuit-canvas" width="195" height="100" class="qlp-preview-canvas"></canvas>
+                    </div>
+                    <div class="qlp-input-row qlp-mt-sm">
+                        <label for="gate-forge-circuit-name" class="qlp-label-sm">Gate Label:</label>
+                        <input tabindex="310" id="gate-forge-circuit-name" type="text" class="qlp-input" placeholder="[symbol]">
+                    </div>
+                    <button tabindex="320" id="gate-forge-circuit-button" class="qlp-btn qlp-btn-primary qlp-btn-wide qlp-mt-sm">
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Create Circuit Gate</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

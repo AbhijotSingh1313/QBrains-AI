@@ -1,0 +1,132 @@
+<div id="export-div" class="qlp-modal-container" style="display:none;">
+    <div id="export-overlay" class="qlp-modal-backdrop"></div>
+    <div id="export-dialog" class="qlp-modal-dialog qlp-export-dialog">
+        <div class="qlp-modal-header">
+            <div class="qlp-modal-title-wrap">
+                <div class="qlp-modal-icon">
+                    <i class="fa-solid fa-file-export"></i>
+                </div>
+                <div>
+                    <h2 class="qlp-modal-title">Export Circuit</h2>
+                    <p class="qlp-modal-subtitle">Export the current quantum circuit to industry standard quantum computing formats and shareable links.</p>
+                </div>
+            </div>
+            <button class="qlp-btn-close" onclick="document.getElementById('export-overlay').click();" title="Close (Esc)">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="qlp-modal-body qlp-scrollable-body">
+            <!-- Section 1: Framework Exporters -->
+            <div class="qlp-card">
+                <div class="qlp-card-header">
+                    <strong id="export-title" class="qlp-card-title">Code Formats</strong>
+                    <span class="qlp-card-subtitle">Export to QASM, Qiskit, Cirq, Quil, and more</span>
+                </div>
+                <div class="qlp-card-content">
+                    <div class="qlp-form-inline">
+                        <label for="export-format-select" class="qlp-label">Target Framework:</label>
+                        <select tabindex="100" id="export-format-select" class="qlp-select">
+                            <option value="QASM2.0">OpenQASM 2.0</option>
+                            <option value="Qiskit">Qiskit (Python)</option>
+                            <option value="Cirq">Cirq (Google)</option>
+                            <option value="PyQuil">PyQuil</option>
+                            <option value="Quil">Quil</option>
+                            <option value="QuEST">QuEST (C++)</option>
+                            <option value="QSharp">Q# (Microsoft)</option>
+                            <option value="Qobj">Qiskit Qobj</option>
+                            <option value="TFQ">Tensorflow Quantum</option>
+                            <option value="Braket">Amazon Braket</option>
+                        </select>
+                        <button id="export-circuit-format" tabindex="101" class="qlp-btn qlp-btn-primary">
+                            <i class="fa-solid fa-code"></i>
+                            <span>Generate & Copy</span>
+                        </button>
+                        <span id="export-format-result" class="qlp-status-badge"></span>
+                    </div>
+                    <pre tabindex="102" id="export-circuit-formats-pre" class="qlp-code-block"></pre>
+                    <span id="export-format-error" class="qlp-error-text"></span>
+                    <div class="qlp-hint">
+                        Note: Only a <a id="gates-link" href="#" class="qlp-link">standard subset of quantum gates</a> can be directly mapped to some external framework representations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Shareable Link -->
+            <div class="qlp-card">
+                <div class="qlp-card-header">
+                    <strong id="link-title" class="qlp-card-title">Shareable URL Link</strong>
+                    <span class="qlp-card-subtitle">Direct link encoding current circuit state</span>
+                </div>
+                <div class="qlp-card-content">
+                    <div class="qlp-form-inline">
+                        <button tabindex="103" id="export-link-copy-button" class="qlp-btn qlp-btn-secondary">
+                            <i class="fa-solid fa-copy"></i>
+                            <span>Copy Link</span>
+                        </button>
+                        <span id="export-link-copy-result" class="qlp-status-badge"></span>
+                    </div>
+                    <div id="link-box" class="qlp-link-box">
+                        <a tabindex="104" id="export-escaped-anchor" class="qlp-link" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Standalone Offline Copy -->
+            <div class="qlp-card">
+                <div class="qlp-card-header">
+                    <strong id="offline-title" class="qlp-card-title">Offline Copy</strong>
+                    <span class="qlp-card-subtitle">Download a self-contained HTML file containing the application and current circuit</span>
+                </div>
+                <div class="qlp-card-content">
+                    <button tabindex="105" id="download-offline-copy-button" class="qlp-btn qlp-btn-secondary qlp-btn-wide">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download Standalone HTML</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 4: Circuit JSON -->
+            <div class="qlp-card">
+                <div class="qlp-card-header">
+                    <strong id="circuit-title" class="qlp-card-title">Circuit JSON</strong>
+                    <span class="qlp-card-subtitle">Structured column-and-wire JSON definition</span>
+                </div>
+                <div class="qlp-card-content">
+                    <div class="qlp-form-inline">
+                        <button tabindex="106" id="export-json-copy-button" class="qlp-btn qlp-btn-secondary">
+                            <i class="fa-solid fa-copy"></i>
+                            <span>Copy JSON</span>
+                        </button>
+                        <span id="export-json-copy-result" class="qlp-status-badge"></span>
+                    </div>
+                    <pre tabindex="107" id="export-circuit-json-pre" class="qlp-code-block"></pre>
+                </div>
+            </div>
+
+            <!-- Section 5: Simulation Data JSON -->
+            <div class="qlp-card">
+                <div class="qlp-card-header">
+                    <strong id="simulation-title" class="qlp-card-title">Simulation Output Data</strong>
+                    <span class="qlp-card-subtitle">Raw state amplitudes, probabilities, and measurement detectors</span>
+                </div>
+                <div class="qlp-card-content">
+                    <div class="qlp-form-inline qlp-justify-between">
+                        <div class="qlp-form-inline">
+                            <button tabindex="108" id="export-amplitudes-button" class="qlp-btn qlp-btn-secondary">
+                                <i class="fa-solid fa-chart-column"></i>
+                                <span>Generate Data</span>
+                            </button>
+                            <span id="export-amplitudes-result" class="qlp-status-badge"></span>
+                        </div>
+                        <label class="qlp-checkbox-label">
+                            <input type="checkbox" tabindex="109" id="export-amplitudes-use-amps" class="qlp-checkbox">
+                            <span>Omit complex amplitudes (smaller size)</span>
+                        </label>
+                    </div>
+                    <pre tabindex="110" id="export-amplitudes-pre" class="qlp-code-block"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

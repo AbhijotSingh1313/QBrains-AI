@@ -1,0 +1,54 @@
+<div id="import-div" class="qlp-modal-container" style="display:none;">
+    <div id="import-overlay" class="qlp-modal-backdrop"></div>
+    <div id="import-dialog" class="qlp-modal-dialog qlp-import-dialog">
+        <div class="qlp-modal-header">
+            <div class="qlp-modal-title-wrap">
+                <div class="qlp-modal-icon">
+                    <i class="fa-solid fa-file-import"></i>
+                </div>
+                <div>
+                    <h2 class="qlp-modal-title">Import Circuit</h2>
+                    <p class="qlp-modal-subtitle">Load a quantum circuit definition from JSON or supported quantum assembly code.</p>
+                </div>
+            </div>
+            <button class="qlp-btn-close" onclick="document.getElementById('import-overlay').click();" title="Close (Esc)">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="qlp-modal-body">
+            <div class="qlp-form-group">
+                <label for="import-format-select" class="qlp-label">Source Format:</label>
+                <select id="import-format-select" class="qlp-select">
+                    <option value="quirk-json">Quantum Circuit JSON</option>
+                    <option value="QASM2.0">OpenQASM 2.0</option>
+                    <option value="QUIL2.0">QUIL 2.0</option>
+                    <option value="Qobj">Qiskit Qobj</option>
+                    <option value="IONQ">IONQ (JSON)</option>
+                </select>
+            </div>
+
+            <div class="qlp-form-group">
+                <label for="import-circuit-textarea" class="qlp-label">Circuit Code / Definition:</label>
+                <textarea tabindex="104" id="import-circuit-textarea" class="qlp-textarea" placeholder="Paste circuit JSON or assembly code here..."></textarea>
+            </div>
+
+            <div class="qlp-alert qlp-alert-warning">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Importing will overwrite the current circuit in your active workspace.</span>
+            </div>
+
+            <span id="import-error-message" class="qlp-error-text" style="display: none;">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                Ran into an error while importing. Please check developer console and syntax for details.
+            </span>
+        </div>
+
+        <div class="qlp-modal-footer">
+            <button tabindex="103" id="import-circuit-button" class="qlp-btn qlp-btn-primary">
+                <i class="fa-solid fa-upload"></i>
+                <span>Load Into Workspace</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div id="circuit-inspector" style="display: none;">
+    <div id="circuit-inspector-overlay" class="qlp-inspector-backdrop"></div>
+    <div id="circuit-inspector-menu" class="qlp-inspector-panel">
+        <div class="qlp-inspector-header">
+            <div class="qlp-inspector-brand">
+                <div class="qlp-inspector-handle" id="inspector-drag-handle" title="Drag to move panel">
+                    <i class="fa-solid fa-grip-vertical"></i>
+                </div>
+                <div class="qlp-inspector-title-wrap">
+                    <div class="qlp-inspector-title">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>Step Inspector</span>
+                    </div>
+                    <span id="inspector-step-counter" class="qlp-inspector-badge">Step 0 of 0</span>
+                </div>
+            </div>
+
+            <div class="qlp-btn-group">
+                <button id="inspector-start" class="qlp-btn-icon" title="Reset to Start (Step 0)">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button id="inspector-step-left" class="qlp-btn-icon" title="Step Back (Previous)">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button id="inspector-play" class="qlp-btn-icon qlp-btn-accent" title="Play Step Simulation">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <button id="inspector-pause" class="qlp-btn-icon qlp-btn-accent" style="display:none;" title="Pause Simulation">
+                    <i class="fa-solid fa-pause"></i>
+                </button>
+                <button id="inspector-step-right" class="qlp-btn-icon" title="Step Forward (Next)">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button id="inspector-end" class="qlp-btn-icon" title="Jump to Final State">
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+            </div>
+
+            <button id="inspector-close-btn" class="qlp-btn-close-sm" onclick="document.getElementById('circuit-inspector-overlay').click();" title="Close Inspector">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="inspector-step-content" class="qlp-inspector-body">
+            <!-- Dynamically populated by StepByStepInspector -->
+        </div>
+    </div>
+</div>

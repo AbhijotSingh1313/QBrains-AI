@@ -1,0 +1,165 @@
+<div id="circuits-div" class="qlp-modal-container" style="display:none;">
+    <div id="circuits-overlay" class="qlp-modal-backdrop"></div>
+    <div class="qlp-modal-dialog qlp-gallery-dialog">
+        <div class="qlp-modal-header">
+            <div class="qlp-modal-title-wrap">
+                <div class="qlp-modal-icon">
+                    <i class="fa-solid fa-cubes-stacked"></i>
+                </div>
+                <div>
+                    <h2 class="qlp-modal-title">Circuit Gallery</h2>
+                    <p class="qlp-modal-subtitle">Explore foundational quantum algorithms, entanglement protocols, and multi-qubit transformations.</p>
+                </div>
+            </div>
+            <button tabindex="50" id="close-circuits-button" class="qlp-btn-close" title="Close Gallery (Esc)">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="qlp-gallery-grid">
+            <!-- Category 1: Algorithms & Tests -->
+            <div class="qlp-gallery-col">
+                <div class="qlp-gallery-cat-header">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>Quantum Algorithms</span>
+                </div>
+                <div class="qlp-gallery-cards">
+                    <a id="example-anchor-grover" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Search</div>
+                        <div class="qlp-item-name">Grover Search</div>
+                        <div class="qlp-item-desc">Quadratic speedup search on 5 qubits</div>
+                    </a>
+                    <a id="example-anchor-shor" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Periodicity</div>
+                        <div class="qlp-item-name">Shor Period Finding</div>
+                        <div class="qlp-item-desc">Order finding routine in Shor's algorithm</div>
+                    </a>
+                    <a id="example-qft" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Transform</div>
+                        <div class="qlp-item-name">Quantum Fourier Transform</div>
+                        <div class="qlp-item-desc">Frequency domain phase transformation</div>
+                    </a>
+                    <a id="example-addition" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Arithmetic</div>
+                        <div class="qlp-item-name">Reversible Addition</div>
+                        <div class="qlp-item-desc">Quantum adder with carry lines</div>
+                    </a>
+                    <a id="example-chsh-test" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Proof</div>
+                        <div class="qlp-item-name">Bell Inequality (CHSH)</div>
+                        <div class="qlp-item-desc">Non-locality test violating local realism</div>
+                    </a>
+                    <a id="example-anchor-distill" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Error Corr.</div>
+                        <div class="qlp-item-name">Magic State Distillation</div>
+                        <div class="qlp-item-desc">Purification of T-state resources</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Category 2: Protocols & Entanglement -->
+            <div class="qlp-gallery-col">
+                <div class="qlp-gallery-cat-header">
+                    <i class="fa-solid fa-atom"></i>
+                    <span>Entanglement & Protocols</span>
+                </div>
+                <div class="qlp-gallery-cards">
+                    <a id="example-anchor-teleport" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Protocol</div>
+                        <div class="qlp-item-name">Quantum Teleportation</div>
+                        <div class="qlp-item-desc">Transmitting an arbitrary state via EPR pair</div>
+                    </a>
+                    <a id="example-superdense-coding" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Protocol</div>
+                        <div class="qlp-item-name">Superdense Coding</div>
+                        <div class="qlp-item-desc">Send 2 classical bits with 1 transmitted qubit</div>
+                    </a>
+                    <a id="example-epr-pair" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Bell State</div>
+                        <div class="qlp-item-name">EPR Pair (Bell State)</div>
+                        <div class="qlp-item-desc">Maximal 2-qubit entanglement |Φ+⟩</div>
+                    </a>
+                    <a id="example-epr-pair-detailed" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Entanglement</div>
+                        <div class="qlp-item-name">EPR Pair (Detailed)</div>
+                        <div class="qlp-item-desc">Stepwise analysis of correlation creation</div>
+                    </a>
+                    <a id="example-schrodingers-cat" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">GHZ State</div>
+                        <div class="qlp-item-name">Schrödinger's Cat (6 Qubits)</div>
+                        <div class="qlp-item-desc">Multi-qubit macroscopic superposition state</div>
+                    </a>
+                    <a id="example-anchor-delayed-eraser" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Foundations</div>
+                        <div class="qlp-item-name">Delayed Choice Eraser</div>
+                        <div class="qlp-item-desc">Which-way information erasure experiment</div>
+                    </a>
+                    <a id="example-symmetry-break" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Coherence</div>
+                        <div class="qlp-item-name">Symmetry Breaking</div>
+                        <div class="qlp-item-desc">Phase coherence and interference modulation</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Category 3: Gates & Subroutines -->
+            <div class="qlp-gallery-col">
+                <div class="qlp-gallery-cat-header">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>Gates & Subroutines</span>
+                </div>
+                <div class="qlp-gallery-cards">
+                    <a id="example-ccnot" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Logic</div>
+                        <div class="qlp-item-name">CCNOT (Toffoli) Gate</div>
+                        <div class="qlp-item-desc">Controlled-controlled NOT reversible gate</div>
+                    </a>
+                    <a id="example-ccnot-decomposition" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Compilation</div>
+                        <div class="qlp-item-name">CCNOT Decomposition</div>
+                        <div class="qlp-item-desc">Decomposing Toffoli into Clifford+T gates</div>
+                    </a>
+                    <a id="example-two-qubit-qft" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">QFT</div>
+                        <div class="qlp-item-name">QFT (2 Qubits)</div>
+                        <div class="qlp-item-desc">2-qubit phase rotation transform</div>
+                    </a>
+                    <a id="example-three-qubit-qft" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">QFT</div>
+                        <div class="qlp-item-name">QFT (3 Qubits)</div>
+                        <div class="qlp-item-desc">3-qubit phase rotation transform</div>
+                    </a>
+                    <a id="example-four-qubit-qft" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">QFT</div>
+                        <div class="qlp-item-name">QFT (4 Qubits)</div>
+                        <div class="qlp-item-desc">4-qubit phase rotation transform</div>
+                    </a>
+                    <a id="example-right-shift" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Permutation</div>
+                        <div class="qlp-item-name">Right-Shift Register</div>
+                        <div class="qlp-item-desc">Cyclic right permutation of state indices</div>
+                    </a>
+                    <a id="example-left-shift" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Permutation</div>
+                        <div class="qlp-item-name">Left-Shift Register</div>
+                        <div class="qlp-item-desc">Cyclic left permutation of state indices</div>
+                    </a>
+                    <a id="example-optimized-state-5-qubits" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Optimized</div>
+                        <div class="qlp-item-name">State Shift (5 Qubits)</div>
+                        <div class="qlp-item-desc">Gate-efficient register shift on 5 wires</div>
+                    </a>
+                    <a id="example-optimized-state-6-qubits" class="qlp-circuit-item">
+                        <div class="qlp-item-badge">Optimized</div>
+                        <div class="qlp-item-name">State Shift (6 Qubits)</div>
+                        <div class="qlp-item-desc">Gate-efficient register shift on 6 wires</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="qlp-modal-footer">
+            <span class="qlp-footer-hint"><i class="fa-solid fa-lightbulb"></i> Tip: Clicking any circuit replaces the active workspace circuit immediately.</span>
+        </div>
+    </div>
+</div>

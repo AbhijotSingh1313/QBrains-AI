@@ -1,0 +1,14 @@
+.git
+.gitignore
+node_modules
+**/node_modules
+SIH/SIH/node_modules
+Quirk-E-main/node_modules
+**/__pycache__
+**/*.pyc
+.env
+.env.local
+scratch
+*.pdf
+run.bat
+rename_folder_to_qbrains_ai.bat

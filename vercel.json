@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/api/(.*)",
@@ -29,32 +30,16 @@
       "destination": "/api/index.py"
     },
     {
-      "source": "/simulator/(.*)",
-      "destination": "/Quirk-E-main/out/"
-    },
-    {
-      "source": "/simulator",
-      "destination": "/Quirk-E-main/out/index.html"
-    },
-    {
       "source": "/learn/(.*)",
-      "destination": "/dashboard/index.html"
+      "destination": "/learn/index.html"
     },
     {
       "source": "/learn",
-      "destination": "/dashboard/index.html"
+      "destination": "/learn/index.html"
     },
     {
-      "source": "/assets/(.*)",
-      "destination": "/dashboard/assets/"
-    },
-    {
-      "source": "/(.*\\.(?:js|css|svg|png|jpg|jpeg|gif|ico|woff|woff2|ttf|json|html))",
-      "destination": "/dashboard/"
-    },
-    {
-      "source": "/",
-      "destination": "/dashboard/index.html"
+      "source": "/simulator",
+      "destination": "/simulator/index.html"
     }
   ]
 }

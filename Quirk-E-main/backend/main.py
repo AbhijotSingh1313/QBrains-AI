@@ -47,6 +47,7 @@ rag_service = RAGService()
 llm_client = LLMClient()
 
 @app.get("/api/info")
+@app.get("/info")
 def root_info():
     return {
         "service": "Quirk-E AI Quantum Tutor API",
@@ -56,6 +57,7 @@ def root_info():
     }
 
 @app.get("/api/tutor/status", response_model=StatusResponse)
+@app.get("/tutor/status", response_model=StatusResponse)
 def get_status():
     return StatusResponse(
         status="ready" if llm_client.is_configured() else "unconfigured",
@@ -68,6 +70,7 @@ def get_status():
     )
 
 @app.get("/api/tutor/rag-topics")
+@app.get("/tutor/rag-topics")
 def get_rag_topics():
     return {
         "topics": rag_service.indexed_topics,
@@ -75,6 +78,7 @@ def get_rag_topics():
     }
 
 @app.post("/api/tutor/chat", response_model=ChatResponse)
+@app.post("/tutor/chat", response_model=ChatResponse)
 def chat_with_tutor(req: ChatRequest):
     if not req.message or not req.message.strip():
         raise HTTPException(status_code=400, detail="Student query cannot be empty.")
@@ -130,6 +134,7 @@ def chat_with_tutor(req: ChatRequest):
 # ============================================================================
 
 @app.get("/api/learning-tutor/status", response_model=LearningStatusResponse)
+@app.get("/learning-tutor/status", response_model=LearningStatusResponse)
 def get_learning_tutor_status():
     return LearningStatusResponse(
         status="ready" if llm_client.is_configured() else "unconfigured",
@@ -142,6 +147,7 @@ def get_learning_tutor_status():
     )
 
 @app.post("/api/learning-tutor/chat", response_model=ChatResponse)
+@app.post("/learning-tutor/chat", response_model=ChatResponse)
 def chat_with_learning_tutor(req: LearningChatRequest):
     if not req.message or not req.message.strip():
         raise HTTPException(status_code=400, detail="Learning question cannot be empty.")

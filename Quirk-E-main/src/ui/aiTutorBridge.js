@@ -8,7 +8,7 @@ class AITutorBridge {
         this.displayedInspector = displayedInspector;
         this.mostRecentStats = mostRecentStats;
         this.conversationHistory = [];
-        this.apiBase = "http://localhost:8000";
+        this.apiBase = (window.location.protocol === "http:" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) ? "http://localhost:8000" : "";
         this.isBusy = false;
 
         this.initDOMElements();

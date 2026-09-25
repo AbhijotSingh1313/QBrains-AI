@@ -1,9 +1,17 @@
-﻿{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
+{
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/learn/(.*)", "destination": "/learn/index.html" },
-    { "source": "/learn", "destination": "/learn/index.html" },
-    { "source": "/simulator", "destination": "/simulator/index.html" }
+    {
+      "source": "/learn/:match*",
+      "destination": "/learn/index.html"
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn/index.html"
+    },
+    {
+      "source": "/simulator",
+      "destination": "/simulator/index.html"
+    }
   ]
 }
